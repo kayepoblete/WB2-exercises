@@ -1,3 +1,5 @@
+//Exercise 3 page 67
+
 "use strict"
 
 let taxPercentage = 0.23;

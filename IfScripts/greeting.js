@@ -1,3 +1,4 @@
+//Exercise 1 page 92
 
 let currentHour = 17;
 let greeting;

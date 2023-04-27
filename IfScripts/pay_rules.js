@@ -1,3 +1,4 @@
+// Exercise 1 page 89
 //Calculate gross pay
 
 let payRate = 25.00;
