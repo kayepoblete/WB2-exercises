@@ -1,14 +1,19 @@
 // Exercise 2 page 92
 
 let hoursWorked = 45;
-let hourlyRate = 28;
+let hourlyRate = 10;
 let grossPay = hoursWorked * hourlyRate;
-let filingStatus = "Joint";
+let filingStatus = "Single";
 let annualHours = hoursWorked * 52;
-let annualGrossIncome = grossPay * 52;
 let taxRate;
-let taxWithheld;
-let netPay;
+let overTimeRate = hourlyRate * 1.5;
+
+if (hoursWorked > 40){
+    var overTimeHours = hoursWorked - 40;
+    grossPay = (hourlyRate * 40) + (overTimeHours * overTimeRate);
+}
+
+let annualGrossIncome = grossPay * 52;
 
 if (filingStatus == "Single") {
     if (annualGrossIncome < 12000){
@@ -38,13 +43,17 @@ else if (filingStatus == "Joint") {
         taxRate = 0.20;
     }
 }
-taxWithheld = annualGrossIncome * taxRate;
-netPay = annualGrossIncome - taxWithheld;
+let taxWithheldWeek = grossPay * taxRate;
+let taxWithheldAnnual = annualGrossIncome * taxRate;
+let netPayWeek = grossPay - taxWithheldWeek;
+let netPayYear = annualGrossIncome - taxWithheldAnnual;
 
 
 console.log("You worked " + hoursWorked + " hours this period.");
 console.log("Because you earn $" + hourlyRate.toFixed(2) + " per hour, your gross pay is $" + grossPay.toFixed(2));
 console.log("Your annual gross income is $" + annualGrossIncome.toFixed(2));
 console.log("Your filing status is " + filingStatus);
-console.log("Your tax withholdings this year is $" + taxWithheld.toFixed(2));
-console.log("Your net pay is $" + netPay.toFixed(2));
+console.log("Your tax withholdings this week is $" + taxWithheldWeek.toFixed(2));
+console.log("Your net pay this week is $" + netPayWeek.toFixed(2));
+console.log("Your tax withholdings this year is $" + taxWithheldAnnual.toFixed(2));
+console.log("Your net pay this year is $" + netPayYear.toFixed(2));
